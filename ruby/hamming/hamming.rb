@@ -1,18 +1,17 @@
 class Hamming
+  VERSION = 1
 
   def compute(x, y)
-    distance = 0
-    split_x = x.chars
-    split_y = y.chars
-    nested_splits = split_x.zip(split_y).map {|w| w[0] == w[1]}
-    nested_splits.each do |w|
-      if true
-        distnace = 0
-      else
-        distance += 1
+    if x.size != y.size
+      raise (ArgumentError)
+    else
+      split_x = x.chars
+      split_y = y.chars
+      nested_splits = split_x.zip(split_y).map {|w| w[0] == w[1]}
+      golden_distance = nested_splits.select.count {|n| n == false}
     end
-    return nested_splits
   end
 end
-
-end
+#
+# h = Hamming.new
+# print h.compute('AG', 'CT')
