@@ -7,7 +7,7 @@ class Complement
                 'A' => 'U' }
 
   def self.of_dna(dna_base)
-    raise (ArgumentError) if dna_base == "U" || dna_base.chars.any? {|d| d == "X" }
+    raise (ArgumentError) if dna_base == "U" || dna_base.chars.any? {|d| d == "X"}
     dna_base.chars.map {|b| BASE_COMP[b]}.join("")
   end
 
