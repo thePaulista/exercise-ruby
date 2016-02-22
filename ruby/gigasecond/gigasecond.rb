@@ -4,7 +4,7 @@ class Gigasecond
   def from(t)
     return (t  + 10 ** 9).utc
   end
-  
+
 end
 
 # gs = Gigasecond.new

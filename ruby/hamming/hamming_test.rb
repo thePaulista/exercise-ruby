@@ -33,53 +33,63 @@ class HammingTest < Minitest::Test
   end
 
   def test_small_distance_in_small_strands
-    skip
-    assert_equal 1, Hamming.compute('AT', 'CT')
+    ham = Hamming.new
+
+    assert_equal 1, ham.compute('AT', 'CT')
   end
 
   def test_small_distance
-    skip
-    assert_equal 1, Hamming.compute('GGACG', 'GGTCG')
+    ham = Hamming.new
+
+    assert_equal 1, ham.compute('GGACG', 'GGTCG')
   end
 
   def test_small_distance_in_long_strands
-    skip
-    assert_equal 2, Hamming.compute('ACCAGGG', 'ACTATGG')
+    ham = Hamming.new
+
+    assert_equal 2, ham.compute('ACCAGGG', 'ACTATGG')
   end
 
   def test_non_unique_character_in_first_strand
-    skip
-    assert_equal 1, Hamming.compute('AGA', 'AGG')
+    ham = Hamming.new
+
+    assert_equal 1, ham.compute('AGA', 'AGG')
   end
 
   def test_non_unique_character_in_second_strand
-    skip
-    assert_equal 1, Hamming.compute('AGG', 'AGA')
+    ham = Hamming.new
+
+    assert_equal 1, ham.compute('AGG', 'AGA')
   end
 
   def test_large_distance
-    skip
-    assert_equal 4, Hamming.compute('GATACA', 'GCATAA')
+    ham = Hamming.new
+
+    assert_equal 4, ham.compute('GATACA', 'GCATAA')
   end
 
   def test_large_distance_in_off_by_one_strand
-    skip
-    assert_equal 9, Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT')
+    ham = Hamming.new
+
+    assert_equal 9, ham.compute('GGACGGATTCTG', 'AGGACGGATTCT')
   end
 
   def test_empty_strands
-    skip
-    assert_equal 0, Hamming.compute('', '')
+    ham = Hamming.new
+
+    assert_equal 0, ham.compute('', '')
   end
 
   def test_disallow_first_strand_longer
-    skip
-    assert_raises(ArgumentError) { Hamming.compute('AATG', 'AAA') }
+    ham = Hamming.new
+
+    assert_raises(ArgumentError) { ham.compute('AATG', 'AAA') }
   end
 
   def test_disallow_second_strand_longer
-    skip
-    assert_raises(ArgumentError) { Hamming.compute('ATA', 'AGTG') }
+    ham = Hamming.new
+
+    assert_raises(ArgumentError) { ham.compute('ATA', 'AGTG') }
   end
 
   # Problems in exercism evolve over time,
@@ -91,7 +101,8 @@ class HammingTest < Minitest::Test
   # If you are curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
   def test_bookkeeping
-    skip
+    ham = Hamming.new
+
     assert_equal 1, Hamming::VERSION
   end
 end

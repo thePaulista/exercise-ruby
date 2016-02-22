@@ -19,12 +19,15 @@ class Fixnum
   def to_roman
     input = self
     conversion = []
-    ROMANS.each_pair do |arabic, roman|
-      div = input / arabic
-      input %= arabic
-      conversion << roman * div
-    end
+    ROMANS.each do |arabic, roman|
+      if input >= arabic
+        conversion << roman
+        input -= arabic
+      end
     return conversion.join
+    end
   end
-
 end
+
+puts 46.to_roman
+puts 446.to_roman
